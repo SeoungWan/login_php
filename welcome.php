@@ -28,24 +28,3 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </body>
 </html>
 
-
-③ 로그아웃 스크립트 만들기
-● 사용자가 로그아웃 또는 로그아웃 링크를 클릭하면 이 파일내의 스크립트가 세션을 삭제하고 사용자를 다시 로그인 페이지로 리디렉션한다.
-
-# cd /var/www/html
-# vi logout.php
-
-<?php
-// Initialize the session
-session_start();
- 
-// Unset all of the session variables
-$_SESSION = array();
- 
-// Destroy the session.
-session_destroy();
- 
-// Redirect to login page
-header("location: login.php");
-exit;
-?>
